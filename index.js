@@ -110,3 +110,14 @@ async function sendMessage(senderId, text) {
 /* ===== START THE ENGINE ===== */
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log("Violet is running on port " + PORT + " 💜"));
+
+/* ===== AT THE BOTTOM OF YOUR INDEX.JS ===== */
+
+// 1. This part is for your local computer testing (e.g., node index.js)
+if (process.env.NODE_ENV !== 'production') {
+  const PORT = process.env.PORT || 3000;
+  app.listen(PORT, () => console.log(`Violet is testing on port ${PORT} 💜`));
+}
+
+// 2. This part is for Vercel
+module.exports = app;
